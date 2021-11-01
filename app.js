@@ -23,7 +23,7 @@ var app = express();
 
 try {
 	mongoose.connect(
-		"mongodb://localhost/shoppingap" || process.env.MONGODB_URL,
+		process.env.MONGODB_URI || process.env.DATABASE_URL,
 		{
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
