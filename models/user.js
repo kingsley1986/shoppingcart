@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-// const Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const userSchema = new mongoose.Schema({
 	name: {
@@ -17,11 +17,14 @@ const userSchema = new mongoose.Schema({
 	},
 	createdAt: {
 		type: Date,
-		required: true,
 		default: Date.now,
 	},
+	admin: {
+		type: Boolean,
+		default: false,
+	},
 
-	// eventcomments: [{ type: Schema.Types.ObjectId, ref: "Eventcomment" }],
+	// products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
 });
 
 module.exports = mongoose.model("User", userSchema);

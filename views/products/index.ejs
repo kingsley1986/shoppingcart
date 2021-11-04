@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/program-index.css">
+
+    <title>Programs</title>
+</head>
+
+<body>
+    <!-- Service Start -->
+    <div class="service">
+        <div class="container">
+            <div class="section-header text-center">
+                <p>Our Services</p>
+                <h2>We Provide Services</h2>
+            </div>
+            <div class="row">
+                <% products.forEach(product=> { %>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="service-item">
+                            <a href="/products/<%=product.id %>">
+                                <div class="service-img">
+                                    <img src="<%= product.image%>" class="program-index_img" alt="Image">
+                                    <div class="service-overlay">
+                                        <p>
+                                            <%= product.description %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="service-text">
+
+                                    <h3>
+                                        <a href="/products/<%=product.id %>">
+                                            <%=product.name %>
+                                        </a>
+                                    </h3>
+
+
+                                    <a class="btn" href="<%= product.image%>" data-lightbox="service">+</a>
+                                </div>
+                        </div>
+                    </div>
+                    </a>
+                    <% });%>
+            </div>
+            <br>
+        </div>
+    </div>
+
+</body>
+
+</html>

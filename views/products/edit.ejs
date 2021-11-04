@@ -1,0 +1,7 @@
+<h2>Edit Program</h2>
+
+<form action="/products/<%=product._id %>/update" method="POST" enctype="multipart/form-data">
+    <%- include('_form_fields') %>
+        <a href="/products">Cacel</a>
+        <button type="submit">Update</button>
+</form>

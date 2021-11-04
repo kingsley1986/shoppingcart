@@ -9,12 +9,13 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var expressLayouts = require("express-ejs-layouts");
-
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
 const passport = require("passport");
 const flash = require("connect-flash");
 const session = require("express-session");
+
+var indexRouter = require("./routes/index");
+var usersRouter = require("./routes/users");
+var productsRouter = require("./routes/products");
 
 // const db = require("./config/keys.js").MongoURI;
 require("./config/passport")(passport);
@@ -74,6 +75,7 @@ app.use(function (req, res, next) {
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/products", productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
