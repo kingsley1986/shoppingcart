@@ -71,7 +71,6 @@ router.get("/:id/", async (req, res) => {
 
 router.get("/:id/edit", async (req, res) => {
 	Product.findById(req.params.id, (err, product) => {
-		console.log(product);
 		res.render("products/edit", {
 			product: product,
 		});
@@ -81,9 +80,7 @@ router.get("/:id/edit", async (req, res) => {
 router.post("/:id/update", upload.single("cover"), async (req, res, next) => {
 	Product.findById(req.params.id, function (err, product) {
 		var path = product.image;
-		console.log("public/" + path);
 		if (req.file && fs.existsSync("public/" + path)) {
-			console.log("want to pass");
 			try {
 				fs.unlinkSync("public/" + path);
 
@@ -109,7 +106,6 @@ router.post("/:id/update", upload.single("cover"), async (req, res, next) => {
 				});
 			}
 		} else if (req.file && !fs.existsSync("public/" + path)) {
-			console.log("it's me here two");
 			let product2 = {};
 			product2.name = req.body.name;
 			product2.description = req.body.description;
